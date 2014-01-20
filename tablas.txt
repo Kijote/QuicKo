@@ -1,0 +1,107 @@
+A
+|
++--- B
+|    |
+|    +--- D
+|    |
+|    +--- E
+|         |
+|         +--- F
+|         |
+|         +--- G
+|
++--- C
+     |
+     +--- F
+     |
+     +--- G
+
+
+A
+B depende de A
+C depende de A
+D depende de B
+E depende de B
+F depende de C y de E
+G depende de C y de E
+
+Comics
+  |
+  +--- Editoriales
+  |      |
+  |      +--- Marvel
+  |      |     |
+  |      |     +--- Revistas
+  |      |            |
+  |      |            +--- Iron Man
+  |      |                  |
+  |      |                  +--- Personajes
+  |      |                         |
+  |      |                         +--- Tony Stark
+  |      |                         |
+  |      |                         +--- Pepper Potts
+  |      |
+  |      +--- DC
+  |            |
+  |            +--- Revistas
+  |                  |
+  |                  +--- Batman
+  |                        |
+  |                        +--- Personajes
+  |                               |
+  |                               +--- Bruce Wayne
+  |                               |
+  |                               +--- Alfred Pennyworth
+  |
+  +--- Heroes
+         |
+         +--- Iron Man
+         |
+         +--- Batman
+
+id	Nombre			Padres		Hijos
+----------------------------------------------------------------------------------
+1	Comics			NULL		2 | 13
+2	Editoriales		1		
+3	Marvel
+4	Revistas
+5	Iron Man		4 | 13		si padre=4 => 6   | si padre=13 => 6
+6	Personajes		5 | 10		si padre=5 => 7,8 | si padre=10 => 11,12
+7	Tony Stark
+8	Pepper Potts
+9	DC
+10	Batman
+11	Bruce Wayne
+12	Alfred Pennyworth
+13	Heroes			1
+
+
+Categorias
+==========
+id	Nombre
+--------------------------------
+1	Comics			
+2	Editoriales		
+3	Marvel
+4	Revistas
+5	Iron Man		
+6	Personajes		
+7	Tony Stark
+8	Pepper Potts
+9	DC
+10	Batman
+11	Bruce Wayne
+12	Alfred Pennyworth
+13	Heroes			
+
+
+Relaciones
+==========
+categoria_id	padres_id	hijos_id
+----------------------------------------
+5		4		6
+5		13		6
+6		5		7
+6		5		8
+6		10		11
+6		10		12
